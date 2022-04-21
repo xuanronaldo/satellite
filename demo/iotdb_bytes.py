@@ -1,5 +1,5 @@
-from src.iotdb_manager import IoTDBManager
-from src.status import Status
+from iotdb.iotdb_manager import IoTDBManager
+from model.status import Status
 from time import sleep
 
 if __name__ == '__main__':

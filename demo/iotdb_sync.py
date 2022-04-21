@@ -1,4 +1,4 @@
-from src.iotdb_manager import IoTDBManager
+from iotdb.iotdb_manager import IoTDBManager
 from time import sleep
 
 if __name__ == '__main__':
