@@ -1,6 +1,7 @@
 from iotdb.Session import Session
 from iotdb.utils.IoTDBConstants import TSDataType
 from functools import reduce
+from time import sleep
 
 
 class IoTDBManager:
@@ -27,9 +28,10 @@ class IoTDBManager:
             print(e)
             return None
 
-    def last_value_generator(self, device):
+    def last_value_generator(self, device, time_interval=1):
         while True:
             yield self.get_last_value_of_device(device)
+            sleep(time_interval)
 
     def bytes_getter(self, device):
         # 2022-01-01 00:00:00
@@ -44,9 +46,10 @@ class IoTDBManager:
         else:
             return b'00000000'
 
-    def bytes_generator(self, device):
+    def bytes_generator(self, device, time_interval=1):
         while True:
             yield self.bytes_getter(device)
+            sleep(time_interval)
 
     def insert_last_value(self, device, df):
         time = df['Time'][0]

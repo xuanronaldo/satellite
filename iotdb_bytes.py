@@ -1,6 +1,5 @@
 from manager.iotdb_manager import IoTDBManager
 from model.status import Status
-from time import sleep
 
 if __name__ == '__main__':
     # create session with IoTDB
@@ -34,6 +33,5 @@ if __name__ == '__main__':
         if bytes_data != b'00000000':
             print('data size: ', len(bytes_data))
             print(Status(bytes_data))
-        sleep(1)
 
     iotdb.close_session()

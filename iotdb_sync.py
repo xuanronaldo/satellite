@@ -1,5 +1,4 @@
 from manager.iotdb_manager import IoTDBManager
-from time import sleep
 
 if __name__ == '__main__':
     source_iotdb = IoTDBManager('127.0.0.1', 6667, 'root', 'root')
@@ -11,7 +10,6 @@ if __name__ == '__main__':
         print('sync data: ')
         print(df)
         target_iotdb.insert_last_value('root.star.computer', df)
-        sleep(1)
 
     source_iotdb.close_session()
     target_iotdb.close_session()
